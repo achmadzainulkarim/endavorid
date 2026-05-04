@@ -1,9 +1,6 @@
 /**
-* Template Name: OnePage
-* Updated: Jan 27 2024 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Evoo - Main JavaScript
+* Enhanced interactions and animations for premium tech-forward design
 */
 (function() {
   "use strict";
@@ -127,7 +124,7 @@
   }, true)
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Scroll with offset on links with a class name .scrollto
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -145,7 +142,7 @@
   }, true)
 
   /**
-   * Scroll with ofset on page load with hash links in the url
+   * Scroll with offset on page load with hash links in the url
    */
   window.addEventListener('load', () => {
     if (window.location.hash) {
@@ -161,52 +158,209 @@
   let preloader = select('#preloader');
   if (preloader) {
     window.addEventListener('load', () => {
-      preloader.remove()
+      setTimeout(() => {
+        preloader.style.opacity = '0';
+        preloader.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => {
+          preloader.remove()
+        }, 500);
+      }, 500);
     });
   }
 
   /**
-   * Initiate glightbox 
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
-
-  /**
-   * Porfolio isotope and filter
+   * Initialize AOS (Animate On Scroll)
    */
   window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      mirror: false,
+      offset: 50
+    })
+  });
+
+  /**
+   * Reveal animations on scroll
+   */
+  const revealElements = select('.reveal', true);
+  if (revealElements.length > 0) {
+    const revealOnScroll = () => {
+      revealElements.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          element.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  }
+
+  /**
+   * Parallax effect for hero background
+   */
+  const heroSection = select('#hero');
+  if (heroSection) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * 0.3;
+      
+      if (scrolled < window.innerHeight) {
+        heroSection.style.backgroundPositionY = `${rate}px`;
+      }
+    });
+  }
+
+  /**
+   * Smooth reveal for pricing cards
+   */
+  const pricingBoxes = select('.pricing .box', true);
+  if (pricingBoxes.length > 0) {
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const pricingObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, index * 100);
+          pricingObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    pricingBoxes.forEach(box => {
+      box.style.opacity = '0';
+      box.style.transform = 'translateY(30px)';
+      box.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      pricingObserver.observe(box);
+    });
+  }
+
+  /**
+   * Feature cards hover effect enhancement
+   */
+  const featureCards = select('.feature-card', true);
+  if (featureCards.length > 0) {
+    featureCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+  }
+
+  /**
+   * Button ripple effect
+   */
+  const buttons = select('.btn-buy, .hero-cta, .cta-button, .btn-learn-more', true);
+  if (buttons.length > 0) {
+    buttons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const ripple = document.createElement('span');
+        ripple.style.cssText = `
+          position: absolute;
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          transform: scale(0);
+          animation: ripple 0.6s linear;
+          pointer-events: none;
+          left: ${x}px;
+          top: ${y}px;
+          width: 100px;
+          height: 100px;
+          margin-left: -50px;
+          margin-top: -50px;
+        `;
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+  }
+
+  // Add ripple animation keyframes
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  /**
+   * Glightbox initialization
+   */
+  const glightboxElements = select('.glightbox', true);
+  if (glightboxElements.length > 0 && typeof GLightbox !== 'undefined') {
+    const glightbox = GLightbox({
+      selector: '.glightbox'
+    });
+  }
+
+  /**
+   * Swiper initialization for testimonials (if exists)
+   */
+  const swiperElements = select('.swiper', true);
+  if (swiperElements.length > 0 && typeof Swiper !== 'undefined') {
+    swiperElements.forEach(swiper => {
+      new Swiper(swiper, {
+        speed: 600,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        slidesPerView: 'auto',
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          1200: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          }
+        }
+      });
+    });
+  }
+
+  /**
+   * Isotope layout initialization (if portfolio exists)
+   */
+  const portfolioContainer = select('.portfolio-container');
+  if (portfolioContainer && typeof Isotope !== 'undefined') {
+    window.addEventListener('load', () => {
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: '.portfolio-item'
       });
@@ -227,49 +381,104 @@
           AOS.refresh()
         });
       }, true);
-    }
-
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+    });
+  }
 
   /**
-   * Portfolio details slider
+   * Portfolio lightbox
    */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+  const portfolioLightboxElements = select('.portfolio-lightbox', true);
+  if (portfolioLightboxElements.length > 0 && typeof GLightbox !== 'undefined') {
+    const portfolioLightbox = GLightbox({
+      selector: '.portfolio-lightbox'
+    });
+  }
 
   /**
-   * Animation on scroll
+   * Counter animation for stats (if exists)
    */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
-  });
+  const counters = select('.counter, .purecounter', true);
+  if (counters.length > 0) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.getAttribute('data-target')) || 0;
+          const duration = parseInt(counter.getAttribute('data-duration')) || 2000;
+          
+          let start = 0;
+          const startTime = performance.now();
+          
+          const updateCounter = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const current = Math.floor(easeOutQuart * target);
+            
+            counter.textContent = current;
+            
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+          
+          requestAnimationFrame(updateCounter);
+          counterObserver.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+  }
 
   /**
-   * Initiate Pure Counter 
+   * Form validation enhancement (if contact form exists)
    */
-  new PureCounter();
+  const contactForm = select('.php-email-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const loading = this.querySelector('.loading');
+      const errorMessage = this.querySelector('.error-message');
+      const sentMessage = this.querySelector('.sent-message');
+      
+      if (loading) loading.style.display = 'block';
+      if (errorMessage) errorMessage.style.display = 'none';
+      if (sentMessage) sentMessage.style.display = 'none';
+      
+      // Simulate form submission (replace with actual form handling)
+      setTimeout(() => {
+        if (loading) loading.style.display = 'none';
+        if (sentMessage) sentMessage.style.display = 'block';
+        this.reset();
+      }, 1500);
+    });
+  }
 
-})()
+  /**
+   * Typing effect for hero headline (optional enhancement)
+   */
+  const heroHeadline = select('#hero h1');
+  if (heroHeadline && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const originalText = heroHeadline.textContent;
+    heroHeadline.textContent = '';
+    
+    let charIndex = 0;
+    const typeWriter = () => {
+      if (charIndex < originalText.length) {
+        heroHeadline.textContent += originalText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, 50);
+      }
+    };
+    
+    // Start typing after a short delay
+    setTimeout(typeWriter, 800);
+  }
+
+})();
