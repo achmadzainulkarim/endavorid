@@ -1576,3 +1576,515 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   TRUST STRIP SECTION
+   ============================================ */
+.trust-strip {
+  background: var(--color-surface);
+  padding: var(--space-8) 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.trust-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.trust-item i {
+  color: var(--color-primary);
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .trust-items {
+    gap: var(--space-6);
+  }
+  
+  .trust-item {
+    font-size: 0.875rem;
+  }
+}
+
+/* ============================================
+   SOLUTIONS SECTION
+   ============================================ */
+.solutions {
+  background: var(--color-bg);
+}
+
+.solution-card {
+  background: var(--gradient-card);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 1rem;
+  padding: var(--space-8);
+  height: 100%;
+  transition: all var(--transition-slow);
+  position: relative;
+  overflow: hidden;
+}
+
+.solution-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: var(--shadow-lg);
+}
+
+.solution-card:hover::before {
+  opacity: 1;
+}
+
+.solution-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--gradient-hero);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-6);
+  color: white;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.solution-card h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.solution-card p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   DEMO SECTION
+   ============================================ */
+.demo-section {
+  background: var(--color-surface);
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.demo-card {
+  background: var(--gradient-card);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 1rem;
+  padding: var(--space-8);
+  text-align: center;
+  transition: all var(--transition-slow);
+}
+
+.demo-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: var(--shadow-lg);
+}
+
+.demo-image {
+  width: 5rem;
+  height: 5rem;
+  background: var(--gradient-hero);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-6);
+  color: white;
+  font-size: 2rem;
+}
+
+.demo-card h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
+}
+
+.demo-card p {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ============================================
+   CASE STUDY SECTION
+   ============================================ */
+.casestudy-section {
+  background: var(--color-bg);
+}
+
+.casestudy-card {
+  background: var(--gradient-card);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 1rem;
+  padding: var(--space-8);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.casestudy-card h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-6);
+  color: var(--color-text-primary);
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.casestudy-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.casestudy-item strong {
+  display: block;
+  color: var(--color-text-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  font-size: 1rem;
+}
+
+.casestudy-item p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================
+   PACKAGES SECTION
+   ============================================ */
+.packages {
+  background: var(--color-surface);
+}
+
+.package-box {
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-card);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  transition: all var(--transition-slow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-box:hover {
+  transform: translateY(-8px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: var(--shadow-lg);
+}
+
+.package-header {
+  margin-bottom: var(--space-6);
+}
+
+.package-box h3 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.package-desc {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.package-price {
+  margin-bottom: var(--space-6);
+}
+
+.price-from {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-2);
+}
+
+.package-box h4 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
+.package-box h4 sup {
+  font-size: 0.875rem;
+  top: -0.5rem;
+  left: -3px;
+  color: var(--color-text-secondary);
+}
+
+.price-note {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  margin-top: var(--space-1);
+}
+
+.package-box ul {
+  padding: 0;
+  list-style: none;
+  color: var(--color-text-secondary);
+  text-align: left;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.package-box ul li {
+  padding: 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.package-box ul li i {
+  color: var(--color-primary);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.package-box .btn-wrap {
+  padding-top: var(--space-6);
+  margin-top: auto;
+}
+
+.package-box .btn-buy {
+  display: inline-flex;
+  padding: 0.875rem 2rem;
+  border-radius: 0.75rem;
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all var(--transition-base);
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  text-decoration: none;
+}
+
+.package-box .btn-buy:hover {
+  background: var(--gradient-hero);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.package-box.featured {
+  background: var(--gradient-hero);
+  border-color: transparent;
+  transform: scale(1.02);
+}
+
+.package-box.featured:hover {
+  transform: scale(1.02) translateY(-8px);
+}
+
+.package-box.featured h3,
+.package-box.featured .package-desc,
+.package-box.featured h4,
+.package-box.featured h4 sup,
+.package-box.featured .price-from,
+.package-box.featured .price-note,
+.package-box.featured ul,
+.package-box.featured ul li {
+  color: white;
+}
+
+.package-box.featured ul li i {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.package-box.featured .btn-buy {
+  color: white;
+  border-color: white;
+}
+
+.package-box.featured .btn-buy:hover {
+  background: white;
+  color: var(--color-primary);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-note {
+  text-align: center;
+  margin-top: var(--space-8);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.pricing-note i {
+  color: var(--color-primary);
+  margin-right: var(--space-2);
+}
+
+/* ============================================
+   WHY EVOO SECTION
+   ============================================ */
+.why-evoo-section {
+  background: var(--color-bg);
+}
+
+.why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--gradient-card);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 1rem;
+  transition: all var(--transition-slow);
+  height: 100%;
+}
+
+.why-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.why-item i {
+  width: 3rem;
+  height: 3rem;
+  background: var(--gradient-hero);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.why-item h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
+}
+
+.why-item p {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================
+   ABOUT SECTION (UPDATED)
+   ============================================ */
+.about .about-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about .about-content .lead {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+  line-height: 1.4;
+}
+
+.about .about-content p {
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: var(--space-4);
+}
+
+/* Responsive for new sections */
+@media (max-width: 991px) {
+  .package-box.featured {
+    transform: none;
+  }
+  
+  .package-box.featured:hover {
+    transform: translateY(-8px);
+  }
+  
+  .demo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .casestudy-card {
+    padding: var(--space-6);
+  }
+  
+  .casestudy-card h4 {
+    font-size: 1.25rem;
+  }
+  
+  .about .about-content .lead {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .package-box {
+    margin-bottom: var(--space-4);
+  }
+  
+  .why-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .why-item i {
+    margin: 0 auto;
+  }
+}
