@@ -6,6 +6,33 @@
   "use strict";
 
   /**
+   * Theme Toggle Functionality
+   */
+  const initThemeToggle = () => {
+    const themeToggle = select('.theme-toggle');
+    const html = document.documentElement;
+    
+    if (!themeToggle) return;
+    
+    // Check for saved theme preference or default to dark
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', currentTheme);
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Refresh AOS to recalculate positions after theme change
+      if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+      }
+    });
+  };
+
+  /**
    * Easy selector helper function
    */
   const select = (el, all = false) => {
@@ -16,6 +43,9 @@
       return document.querySelector(el)
     }
   }
+
+  // Initialize theme toggle (now that select is defined)
+  initThemeToggle();
 
   /**
    * Easy event listener function
@@ -395,7 +425,49 @@
   }
 
   /**
-   * Counter animation for stats (if exists)
+   * Counter animation for stats (stat-number elements)
+   */
+  const statNumbers = select('.stat-number', true);
+  if (statNumbers.length > 0) {
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.getAttribute('data-target')) || 0;
+          const duration = 2000;
+          const suffix = counter.getAttribute('data-suffix') || '+';
+          
+          let startTime = null;
+          
+          const updateCounter = (currentTime) => {
+            if (!startTime) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function - easeOutQuart
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const current = Math.floor(easeOutQuart * target);
+            
+            counter.textContent = current + suffix;
+            
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target + suffix;
+            }
+          };
+          
+          requestAnimationFrame(updateCounter);
+          statObserver.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(counter => statObserver.observe(counter));
+  }
+
+  /**
+   * Legacy Counter animation for stats (if exists)
    */
   const counters = select('.counter, .purecounter', true);
   if (counters.length > 0) {
