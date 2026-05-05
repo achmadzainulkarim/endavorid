@@ -497,7 +497,7 @@
               counter.textContent = target;
             }
           };
-          
+
           requestAnimationFrame(updateCounter);
           counterObserver.unobserve(counter);
         }
@@ -534,9 +534,10 @@
 
   /**
    * Typing effect for hero headline (optional enhancement)
+   * Disabled when i18n is active to prevent translation conflicts
    */
   const heroHeadline = select('#hero h1');
-  if (heroHeadline && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (heroHeadline && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && typeof i18n === 'undefined') {
     const originalText = heroHeadline.textContent;
     heroHeadline.textContent = '';
     
@@ -552,5 +553,14 @@
     // Start typing after a short delay
     setTimeout(typeWriter, 800);
   }
+
+  /**
+   * Re-initialize AOS on language change
+   */
+  window.addEventListener('languageChanged', () => {
+    if (typeof AOS !== 'undefined') {
+      AOS.refresh();
+    }
+  });
 
 })();

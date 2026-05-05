@@ -60,12 +60,25 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="#solutions">Solusi</a></li>
-          <li><a class="nav-link scrollto" href="#packages">Paket</a></li>
-          <li><a class="nav-link scrollto" href="#about">Tentang</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
+          <li><a class="nav-link scrollto active" href="#hero" data-i18n="nav.home">Beranda</a></li>
+          <li><a class="nav-link scrollto" href="#solutions" data-i18n="nav.solutions">Solusi</a></li>
+          <li><a class="nav-link scrollto" href="#packages" data-i18n="nav.packages">Paket</a></li>
+          <li><a class="nav-link scrollto" href="#about" data-i18n="nav.about">Tentang</a></li>
+          <li><a class="nav-link scrollto" href="#contact" data-i18n="nav.contact">Kontak</a></li>
         </ul>
+        
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="id" aria-label="Switch to Indonesian">
+            <span class="lang-flag">🇮🇩</span>
+            <span class="lang-code" data-i18n="lang.id">ID</span>
+          </button>
+          <button class="lang-btn" data-lang="en-us" aria-label="Switch to English (US)">
+            <span class="lang-flag">🇺🇸</span>
+            <span class="lang-code" data-i18n="lang.en-us">EN</span>
+          </button>
+        </div>
+        
         <!-- Theme Toggle Button -->
         <button class="theme-toggle" aria-label="Toggle dark mode">
           <!-- Sun Icon (shown in dark mode) -->
@@ -101,12 +114,12 @@
     </div>
     <div class="container">
       <div class="hero-content">
-        <h1 data-aos="fade-up">Build Reliable Digital Systems</h1>
-        <h2 data-aos="fade-up" data-aos-delay="100">
-          We help businesses turn ideas into scalable, production-ready software.
+        <h1 data-aos="fade-up" data-i18n="hero.headline">Build Reliable Digital Systems</h1>
+        <h2 data-aos="fade-up" data-aos-delay="100" data-i18n="hero.subtext">
+          Kami membantu bisnis mengubah ide menjadi software yang scalable dan siap produksi.
         </h2>
         <a href="#contact" class="hero-cta scrollto" data-aos="fade-up" data-aos-delay="200">
-          Start a Project
+          <span data-i18n="hero.cta">Mulai Proyek</span>
           <i class="bi bi-arrow-right"></i>
         </a>
       </div>
@@ -119,15 +132,15 @@
       <div class="trust-items" data-aos="fade-up">
         <div class="trust-item">
           <i class="bi bi-check-circle-fill"></i>
-          <span>Custom-built solutions</span>
+          <span data-i18n="trust.custom">Solusi custom-built</span>
         </div>
         <div class="trust-item">
           <i class="bi bi-check-circle-fill"></i>
-          <span>Scalable architecture</span>
+          <span data-i18n="trust.scalable">Arsitektur scalable</span>
         </div>
         <div class="trust-item">
           <i class="bi bi-check-circle-fill"></i>
-          <span>Reliable support</span>
+          <span data-i18n="trust.support">Dukungan reliable</span>
         </div>
       </div>
     </div>
@@ -138,8 +151,8 @@
     <section id="solutions" class="solutions">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>Solutions We Offer</h2>
-          <p>Practical software solutions for real business needs</p>
+          <h2 data-i18n="solutions.title">Solusi yang Kami Tawarkan</h2>
+          <p data-i18n="solutions.subtitle">Solusi software praktis untuk kebutuhan bisnis nyata</p>
         </div>
 
         <div class="row">
@@ -148,8 +161,8 @@
               <div class="solution-icon">
                 <i class="bi bi-globe"></i>
               </div>
-              <h4>Business Website System</h4>
-              <p>Modern company profile, landing pages, CMS-ready.</p>
+              <h4 data-i18n="solutions.website.title">Business Website System</h4>
+              <p data-i18n="solutions.website.desc">Modern company profile, landing pages, CMS-ready.</p>
             </div>
           </div>
 
@@ -158,8 +171,8 @@
               <div class="solution-icon">
                 <i class="bi bi-speedometer2"></i>
               </div>
-              <h4>Internal Dashboard System</h4>
-              <p>Admin panels, reporting systems, role management.</p>
+              <h4 data-i18n="solutions.dashboard.title">Internal Dashboard System</h4>
+              <p data-i18n="solutions.dashboard.desc">Admin panels, reporting systems, role management.</p>
             </div>
           </div>
 
@@ -168,8 +181,8 @@
               <div class="solution-icon">
                 <i class="bi bi-gear-wide-connected"></i>
               </div>
-              <h4>Custom Automation Tools</h4>
-              <p>Reduce manual work with tailored workflows.</p>
+              <h4 data-i18n="solutions.automation.title">Custom Automation Tools</h4>
+              <p data-i18n="solutions.automation.desc">Kurangi pekerjaan manual dengan workflows yang disesuaikan.</p>
             </div>
           </div>
 
@@ -178,8 +191,8 @@
               <div class="solution-icon">
                 <i class="bi bi-plug"></i>
               </div>
-              <h4>API & Integration</h4>
-              <p>Connect your systems with third-party services.</p>
+              <h4 data-i18n="solutions.api.title">API & Integration</h4>
+              <p data-i18n="solutions.api.desc">Hubungkan sistem Anda dengan layanan pihak ketiga.</p>
             </div>
           </div>
         </div>
@@ -190,8 +203,8 @@
     <section id="demo" class="demo-section section-bg">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>See What We Can Build</h2>
-          <p>Examples of systems we've delivered</p>
+          <h2 data-i18n="demo.title">Lihat Apa yang Bisa Kami Bangun</h2>
+          <p data-i18n="demo.subtitle">Contoh sistem yang telah kami deliver</p>
         </div>
 
         <div class="demo-grid">
@@ -199,24 +212,24 @@
             <div class="demo-image">
               <i class="bi bi-kanban"></i>
             </div>
-            <h4>Dashboard System</h4>
-            <p>Analytics and management interface</p>
+            <h4 data-i18n="demo.dashboard.title">Dashboard System</h4>
+            <p data-i18n="demo.dashboard.desc">Analytics and management interface</p>
           </div>
 
           <div class="demo-card" data-aos="fade-up" data-aos-delay="200">
             <div class="demo-image">
               <i class="bi bi-cart-check"></i>
             </div>
-            <h4>POS System</h4>
-            <p>Point of sale for retail operations</p>
+            <h4 data-i18n="demo.pos.title">POS System</h4>
+            <p data-i18n="demo.pos.desc">Point of sale untuk operasi retail</p>
           </div>
 
           <div class="demo-card" data-aos="fade-up" data-aos-delay="300">
             <div class="demo-image">
               <i class="bi bi-calendar-check"></i>
             </div>
-            <h4>Booking System</h4>
-            <p>Appointment and reservation platform</p>
+            <h4 data-i18n="demo.booking.title">Booking System</h4>
+            <p data-i18n="demo.booking.desc">Platform appointment dan reservation</p>
           </div>
         </div>
       </div>
@@ -226,24 +239,24 @@
     <section id="casestudy" class="casestudy-section">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>Selected Work</h2>
-          <p>Real projects with real results</p>
+          <h2 data-i18n="casestudy.title">Pekerjaan Terpilih</h2>
+          <p data-i18n="casestudy.subtitle">Proyek nyata dengan hasil nyata</p>
         </div>
 
         <div class="casestudy-card" data-aos="fade-up" data-aos-delay="100">
-          <h4>Inventory Management System</h4>
+          <h4 data-i18n="casestudy.project.name">Inventory Management System</h4>
           <div class="casestudy-content">
             <div class="casestudy-item">
-              <strong>Problem:</strong>
-              <p>Client struggled with manual stock tracking across multiple locations, leading to stockouts and overordering.</p>
+              <strong data-i18n="casestudy.problem">Problem:</strong>
+              <p data-i18n="casestudy.problem.desc">Klien kesulitan dengan tracking stok manual di multiple lokasi, menyebabkan stockout dan overordering.</p>
             </div>
             <div class="casestudy-item">
-              <strong>Solution:</strong>
-              <p>Built a centralized inventory dashboard with real-time tracking, automated alerts, and multi-location support.</p>
+              <strong data-i18n="casestudy.solution">Solution:</strong>
+              <p data-i18n="casestudy.solution.desc">Membangun inventory dashboard terpusat dengan real-time tracking, alert otomatis, dan multi-location support.</p>
             </div>
             <div class="casestudy-item">
-              <strong>Result:</strong>
-              <p>Reduced stock discrepancies by 85% and saved 10+ hours per week on manual inventory checks.</p>
+              <strong data-i18n="casestudy.result">Result:</strong>
+              <p data-i18n="casestudy.result.desc">Mengurangi stock discrepancies sebesar 85% dan menghemat 10+ jam per minggu untuk pengecekan inventory manual.</p>
             </div>
           </div>
         </div>
@@ -254,29 +267,29 @@
     <section id="packages" class="packages section-bg">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>Starter Packages</h2>
-          <p>Clear pricing for common needs</p>
+          <h2 data-i18n="packages.title">Paket Starter</h2>
+          <p data-i18n="packages.subtitle">Harga jelas untuk kebutuhan umum</p>
         </div>
 
         <div class="row">
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
             <div class="package-box">
               <div class="package-header">
-                <h3>Website Starter</h3>
-                <p class="package-desc">For businesses who need a professional online presence</p>
+                <h3 data-i18n="packages.website.title">Website Starter</h3>
+                <p class="package-desc" data-i18n="packages.website.desc">Untuk bisnis yang membutuhkan presence online profesional</p>
               </div>
               <div class="package-price">
-                <span class="price-from">Start from</span>
+                <span class="price-from" data-i18n="packages.website.price">Mulai dari</span>
                 <h4><sup>Rp</sup>3.000.000 – 8.000.000</h4>
               </div>
               <ul>
-                <li><i class="bi bi-check2"></i> 3–5 pages website</li>
-                <li><i class="bi bi-check2"></i> Mobile responsive</li>
-                <li><i class="bi bi-check2"></i> Basic CMS</li>
-                <li><i class="bi bi-check2"></i> Contact integration</li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.website.feature1">Website 3–5 halaman</span></li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.website.feature2">Mobile responsive</span></li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.website.feature3">CMS dasar</span></li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.website.feature4">Integrasi kontak</span></li>
               </ul>
               <div class="btn-wrap">
-                <a href="https://wa.me/6282333979097?text=Halo%20Evoo,%20saya%20tertarik%20dengan%20paket%20Website%20Starter" class="btn-buy" target="_blank">Start a Project</a>
+                <a href="https://wa.me/6282333979097?text=Halo%20Evoo,%20saya%20tertarik%20dengan%20paket%20Website%20Starter" class="btn-buy" target="_blank" data-i18n="packages.website.cta">Mulai Proyek</a>
               </div>
             </div>
           </div>
@@ -284,21 +297,21 @@
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="package-box featured">
               <div class="package-header">
-                <h3>Business System Starter</h3>
-                <p class="package-desc">For internal tools and dashboards</p>
+                <h3 data-i18n="packages.system.title">Business System Starter</h3>
+                <p class="package-desc" data-i18n="packages.system.desc">Untuk tools internal dan dashboards</p>
               </div>
               <div class="package-price">
-                <span class="price-from">Start from</span>
+                <span class="price-from" data-i18n="packages.website.price">Mulai dari</span>
                 <h4><sup>Rp</sup>8.000.000 – 25.000.000</h4>
               </div>
               <ul>
-                <li><i class="bi bi-check2"></i> Admin dashboard</li>
-                <li><i class="bi bi-check2"></i> Role & permission</li>
-                <li><i class="bi bi-check2"></i> Basic reporting</li>
-                <li><i class="bi bi-check2"></i> API ready</li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.system.feature1">Admin dashboard</span></li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.system.feature2">Role & permission</span></li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.system.feature3">Reporting dasar</span></li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.system.feature4">API ready</span></li>
               </ul>
               <div class="btn-wrap">
-                <a href="https://wa.me/6282333979097?text=Halo%20Evoo,%20saya%20tertarik%20dengan%20paket%20Business%20System%20Starter" class="btn-buy" target="_blank">Start a Project</a>
+                <a href="https://wa.me/6282333979097?text=Halo%20Evoo,%20saya%20tertarik%20dengan%20paket%20Business%20System%20Starter" class="btn-buy" target="_blank" data-i18n="packages.website.cta">Mulai Proyek</a>
               </div>
             </div>
           </div>
@@ -306,29 +319,29 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="package-box">
               <div class="package-header">
-                <h3>Custom Solution</h3>
-                <p class="package-desc">For complex and scalable systems</p>
+                <h3 data-i18n="packages.custom.title">Custom Solution</h3>
+                <p class="package-desc" data-i18n="packages.custom.desc">Untuk sistem yang kompleks dan scalable</p>
               </div>
               <div class="package-price">
-                <span class="price-from">Pricing</span>
-                <h4>Custom</h4>
-                <span class="price-note">based on scope</span>
+                <span class="price-from" data-i18n="packages.custom.price">Harga</span>
+                <h4 data-i18n="packages.custom.price.custom">Custom</h4>
+                <span class="price-note" data-i18n="packages.custom.note">berdasarkan scope</span>
               </div>
               <ul>
-                <li><i class="bi bi-check2"></i> Full custom development</li>
-                <li><i class="bi bi-check2"></i> Architecture planning</li>
-                <li><i class="bi bi-check2"></i> Integration & deployment</li>
-                <li><i class="bi bi-check2"></i> Ongoing support</li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.custom.feature1">Full custom development</span></li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.custom.feature2">Architecture planning</span></li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.custom.feature3">Integration & deployment</span></li>
+                <li><i class="bi bi-check2"></i> <span data-i18n="packages.custom.feature4">Ongoing support</span></li>
               </ul>
               <div class="btn-wrap">
-                <a href="https://wa.me/6282333979097?text=Halo%20Evoo,%20saya%20tertarik%20dengan%20Custom%20Solution" class="btn-buy" target="_blank">Discuss Your Project</a>
+                <a href="https://wa.me/6282333979097?text=Halo%20Evoo,%20saya%20tertarik%20dengan%20Custom%20Solution" class="btn-buy" target="_blank" data-i18n="packages.custom.cta">Diskusikan Proyek Anda</a>
               </div>
             </div>
           </div>
         </div>
 
         <div class="pricing-note" data-aos="fade-up" data-aos-delay="400">
-          <p><i class="bi bi-info-circle"></i> Final pricing depends on project complexity and specific requirements.</p>
+          <p><i class="bi bi-info-circle"></i> <span data-i18n="packages.note">Harga akhir tergantung pada kompleksitas proyek dan kebutuhan spesifik.</span></p>
         </div>
       </div>
     </section>
@@ -337,8 +350,8 @@
     <section id="why-evoo" class="why-evoo-section">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>Why Work With Evoo</h2>
-          <p>What makes us different</p>
+          <h2 data-i18n="why.title">Mengapa Bekerja dengan Evoo</h2>
+          <p data-i18n="why.subtitle">Apa yang membuat kami berbeda</p>
         </div>
 
         <div class="row">
@@ -346,8 +359,8 @@
             <div class="why-item">
               <i class="bi bi-shield-check"></i>
               <div>
-                <h4>Focus on reliability, not just visuals</h4>
-                <p>We build systems that work consistently, not just look good.</p>
+                <h4 data-i18n="why.reliability.title">Fokus pada reliability, bukan hanya visual</h4>
+                <p data-i18n="why.reliability.desc">Kami membangun sistem yang bekerja secara konsisten, bukan hanya terlihat bagus.</p>
               </div>
             </div>
           </div>
@@ -356,8 +369,8 @@
             <div class="why-item">
               <i class="bi bi-code-square"></i>
               <div>
-                <h4>Clean and scalable code</h4>
-                <p>Your system can grow without technical debt holding it back.</p>
+                <h4 data-i18n="why.code.title">Clean dan scalable code</h4>
+                <p data-i18n="why.code.desc">Sistem Anda dapat berkembang tanpa technical debt yang menghambat.</p>
               </div>
             </div>
           </div>
@@ -366,8 +379,8 @@
             <div class="why-item">
               <i class="bi bi-tools"></i>
               <div>
-                <h4>Practical solutions, not over-engineered</h4>
-                <p>We solve your actual problems without unnecessary complexity.</p>
+                <h4 data-i18n="why.practical.title">Solusi praktis, tidak over-engineered</h4>
+                <p data-i18n="why.practical.desc">Kami menyelesaikan masalah Anda yang sebenarnya tanpa kompleksitas yang tidak perlu.</p>
               </div>
             </div>
           </div>
@@ -376,8 +389,8 @@
             <div class="why-item">
               <i class="bi bi-chat-dots"></i>
               <div>
-                <h4>Direct communication</h4>
-                <p>Talk directly to the developers building your project.</p>
+                <h4 data-i18n="why.communication.title">Komunikasi langsung</h4>
+                <p data-i18n="why.communication.desc">Bicara langsung dengan developer yang membangun proyek Anda.</p>
               </div>
             </div>
           </div>
@@ -389,21 +402,21 @@
     <section id="about" class="about section-bg">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>About Evoo</h2>
-          <p>Software agency that builds systems that work</p>
+          <h2 data-i18n="about.title">Tentang Evoo</h2>
+          <p data-i18n="about.subtitle">Software agency yang membangun sistem yang berfungsi</p>
         </div>
 
         <div class="row align-items-center">
           <div class="col-lg-12" data-aos="fade-up">
             <div class="about-content">
-              <p class="lead">
-                Evoo is a software agency focused on building systems that actually work.
+              <p class="lead" data-i18n="about.lead">
+                Evoo adalah software agency yang fokus membangun sistem yang benar-benar berfungsi.
               </p>
-              <p>
-                We help businesses move from manual processes into efficient digital systems. Whether you need a company website, an internal dashboard, or a custom business tool, we deliver solutions that are reliable and ready for production.
+              <p data-i18n="about.p1">
+                Kami membantu bisnis beralih dari proses manual ke sistem digital yang efisien. Baik Anda membutuhkan company website, internal dashboard, atau custom business tool, kami deliver solusi yang reliable dan siap produksi.
               </p>
-              <p>
-                Led by an experienced developer with hands-on project execution, we take pride in writing clean code and solving real business problems.
+              <p data-i18n="about.p2">
+                Dipimpin oleh developer berpengalaman dengan eksekusi proyek hands-on, kami bangga menulis clean code dan menyelesaikan masalah bisnis nyata.
               </p>
             </div>
           </div>
@@ -414,13 +427,13 @@
     <!-- ======= Final CTA Section ======= -->
     <section id="cta" class="cta-section">
       <div class="container">
-        <h2 class="cta-headline" data-aos="fade-up">Let's Build Something That Works</h2>
-        <p class="cta-subtext" data-aos="fade-up" data-aos-delay="100">
-          Tell us about your project and we'll get back to you within 24 hours
+        <h2 class="cta-headline" data-aos="fade-up" data-i18n="cta.title">Mari Bangun Sesuatu yang Berfungsi</h2>
+        <p class="cta-subtext" data-aos="fade-up" data-aos-delay="100" data-i18n="cta.subtitle">
+          Ceritakan proyek Anda dan kami akan menghubungi Anda dalam 24 jam
         </p>
         <a href="https://wa.me/6282333979097" class="cta-button" data-aos="fade-up" data-aos-delay="200" target="_blank">
           <i class="bi bi-whatsapp"></i>
-          Start a Project
+          <span data-i18n="cta.button">Mulai Proyek</span>
         </a>
       </div>
     </section>
@@ -429,8 +442,8 @@
     <section id="contact" class="contact">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>Contact</h2>
-          <p>Ready to start? Get in touch</p>
+          <h2 data-i18n="contact.title">Kontak</h2>
+          <p data-i18n="contact.subtitle">Siap memulai? Hubungi kami</p>
         </div>
 
         <div class="row">
@@ -439,8 +452,8 @@
               <div class="info-item">
                 <i class="bi bi-geo-alt"></i>
                 <div>
-                  <h4>Location</h4>
-                  <p>
+                  <h4 data-i18n="contact.location">Lokasi</h4>
+                  <p data-i18n="contact.location.address">
                     Jl. Bratang Gede 1C / 29<br>
                     Wonokromo, Surabaya 60245
                   </p>
@@ -450,7 +463,7 @@
               <div class="info-item">
                 <i class="bi bi-envelope"></i>
                 <div>
-                  <h4>Email</h4>
+                  <h4 data-i18n="contact.email">Email</h4>
                   <p>
                     <a href="mailto:evoomyid@gmail.com">evoomyid@gmail.com</a>
                   </p>
@@ -460,7 +473,7 @@
               <div class="info-item">
                 <i class="bi bi-whatsapp"></i>
                 <div>
-                  <h4>WhatsApp</h4>
+                  <h4 data-i18n="contact.whatsapp">WhatsApp</h4>
                   <p>
                     <a href="https://wa.me/6282333979097" target="_blank">+62 82 333 97 90 97</a>
                   </p>
@@ -491,8 +504,8 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 footer-brand">
             <h3>Evoo</h3>
-            <p>
-              Software development agency focused on building scalable, reliable systems for businesses.
+            <p data-i18n="footer.tagline">
+              Software development agency yang fokus membangun sistem scalable dan reliable untuk bisnis.
             </p>
             <div class="social-links">
               <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -502,28 +515,28 @@
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Links</h4>
+            <h4 data-i18n="footer.links">Link</h4>
             <ul>
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#solutions">Solutions</a></li>
-              <li><a href="#packages">Packages</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#hero" data-i18n="nav.home">Beranda</a></li>
+              <li><a href="#solutions" data-i18n="nav.solutions">Solusi</a></li>
+              <li><a href="#packages" data-i18n="nav.packages">Paket</a></li>
+              <li><a href="#about" data-i18n="nav.about">Tentang</a></li>
+              <li><a href="#contact" data-i18n="nav.contact">Kontak</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Solutions</h4>
+            <h4 data-i18n="footer.solutions">Solusi</h4>
             <ul>
-              <li><a href="#solutions">Business Website</a></li>
-              <li><a href="#solutions">Internal Dashboard</a></li>
-              <li><a href="#solutions">Automation Tools</a></li>
-              <li><a href="#solutions">API & Integration</a></li>
+              <li><a href="#solutions" data-i18n="footer.solution1">Business Website</a></li>
+              <li><a href="#solutions" data-i18n="footer.solution2">Internal Dashboard</a></li>
+              <li><a href="#solutions" data-i18n="footer.solution3">Automation Tools</a></li>
+              <li><a href="#solutions" data-i18n="footer.solution4">API & Integration</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Contact</h4>
+            <h4 data-i18n="nav.contact">Kontak</h4>
             <ul>
               <li><i class="bi bi-geo-alt me-2"></i> Surabaya, Indonesia</li>
               <li><i class="bi bi-envelope me-2"></i> evoomyid@gmail.com</li>
@@ -534,7 +547,7 @@
       </div>
 
       <div class="copyright">
-        &copy; Copyright <strong>Evoo</strong>. All Rights Reserved.
+        &copy; Copyright <strong>Evoo</strong>. <span data-i18n="footer.copyright">Hak Cipta Dilindungi.</span>
       </div>
     </div>
   </footer>
@@ -545,6 +558,9 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- i18n JS File -->
+  <script src="assets/js/i18n.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
